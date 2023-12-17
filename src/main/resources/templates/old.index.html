@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Management Home</title>
+    <style>
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: Dark-Blue;
+}
+button {
+       background-color: #FFFDD0;
+       width: 100%;
+        color: dark-blue;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+         }
+
+ button:hover {
+        opacity: 0.7;
+    }
+  .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+    }
+
+ .container {
+        padding: 25px;
+        background-color: lightblue;
+    }
+    table {
+      margin : auto;
+      width: 100%;
+      border-collapse: collapse ;
+    }
+</style>
+</head>
+<body>
+<center> <h1>Welcome To Inventory Management System Home Page</h1> </center>
+<div class="container">
+    <button onclick="productTable()">Products</button>
+
+    <table id="productTable" border="0.5">
+        <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Quantity In Stock</th>
+            <th>Price</th>
+            <th>Category of Product</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.productId}"></td>
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.quantityInStock}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.category}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <button onclick="getTransactions()">Transactions</button>
+
+    <table id="transactionsTable" border="0.5">
+        <thead>
+        <tr>
+            <th>Transaction Id</th>
+            <th>Transaction Type</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Product Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction : ${transactions}">
+            <td th:text="${transaction.transactionId}"></td>
+            <td th:text="${transaction.transactionType}"></td>
+            <td th:text="${transaction.date}"></td>
+            <td th:text="${transaction.quantity}"></td>
+            <td th:text="${transaction.product.productId}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <button onclick="redirectToHomePage()">Generate Report</button>
+</div>
+<script>
+        function productTable() {
+            var table = document.getElementById("productTable");
+
+            if (table.style.display === "none") {
+                table.style.display = "table";
+
+            } else {
+                table.style.display = "none";
+            }
+        }
+    </script>
+<script>
+        function getTransactions() {
+            var table = document.getElementById("transactionsTable");
+
+            if (table.style.display === "none") {
+                table.style.display = "table";
+
+            } else {
+                table.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

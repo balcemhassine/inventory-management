@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inventory Management</title>
+  <link href="bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="home.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body class="text-center" data-new-gr-c-s-check-loaded="14.1145.0" data-gr-ext-installed="">
+
+<main class="form-signin">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Products
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+
+          <div id="productTableContainer"> </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Transactions
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div id="transactionTableContainer"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center">
+    <button type="button" class="btn btn-primary mt-3 center" onclick="generatePdfAndCsv()">Generate Report</button>
+  </div>
+
+
+
+</main>
+
+
+
+
+<script src="bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="main.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

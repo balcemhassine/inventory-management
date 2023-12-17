@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+    body {
+      text-align: center;
+    }
+
+    table {
+      margin: auto;
+      border: 0.5px solid;
+    }
+     h4 {
+      text-align: left;
+    }
+     li {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<h1 style="text-align: center; color: green">
+    <span th:text="'Report ' + ${date} + ':'"></span>
+</h1>
+<br/>
+<br/>
+
+<p style="text-align: left; color: black">
+    <span style="font-weight: bold;">The Total Revenue:</span>
+    <span th:text="' ' + ${totalRevenue} + '.'"></span>
+    <br/>
+    <br/>
+</p>
+
+<p style="text-align: left; color: black">
+    <span style="font-weight: bold;">The Most Profitable Product:</span>
+    <span th:text="' ' + ${mostProfitableProduct} + '.'"></span>
+    <br/>
+    <br/>
+</p>
+<p style="text-align: left; color: black">
+    <span style="font-weight: bold;">The Best Selling Product:</span>
+    <span th:text="' ' + ${bestSellingProduct} + '.'"></span>
+    <br/>
+    <br/>
+</p>
+<h4>The Revenue By Each Category:</h4>
+<table border="0.5">
+    <thead>
+    <tr>
+        <th>Category Name</th>
+        <th>Revenue Generated</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="element : ${revenueByCategory}">
+        <td th:text="${element.key}">keyvalue</td>
+        <td th:text="${element.value}">num</td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+<h4>The Revenue By Each Product:</h4>
+
+<table border="0.5">
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <th>Revenue Generated</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="element : ${revenueByProduct}">
+        <td th:text="${element.key}">keyvalue</td>
+        <td th:text="${element.value}">num</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h4>The Best Selling Products:</h4>
+
+<ul>
+    <li th:each="str : ${bestSellingProducts}" th:text="${str}"></li>
+</ul>
+
+</body>
+</html>
